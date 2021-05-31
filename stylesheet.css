@@ -21,15 +21,38 @@
 body{
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
+    background-color: black;
+    animation: siteUnblur 1s forwards;
+}
+
+.contentContainer{
     background-color: var(--backClr);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 70px;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 9;
+    animation: siteReveal 2s forwards;
 }
+
+.btnRipple{
+    position: relative;
+    overflow: hidden;
+}
+
+span.ripple {
+    position: absolute; /* The absolute position we mentioned earlier */
+    z-index: 100;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 2s linear;
+    background-color: rgba(0, 0, 0, 0.5);
+    filter: blur(40px);
+  }
 
 .title{
     color: var(--textClr);
@@ -58,16 +81,69 @@ body{
 .muStar{
     width: 200px;
     height: 200px;
-    animation: shapeRotate 8s linear forwards infinite;
+    animation: shapeRotate 20s linear forwards infinite;
     filter: brightness(0) saturate(100%) invert(76%) sepia(4%) saturate(2937%) hue-rotate(316deg) brightness(104%) contrast(91%);
 }
 
 .muStar2{
     width: 200px;
     height: 200px;
-    animation: shapeRotateRev 5s linear forwards infinite;
+    animation: shapeRotateRev 15s linear forwards infinite;
     filter: invert(95%) sepia(12%) saturate(1624%) hue-rotate(315deg) brightness(105%) contrast(97%);
 }
+
+.imageContainer{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.squarePillImg{
+    width: 150px;
+    height: 200px;
+    background-color: var(--itemClr2);
+    border-radius: 200px;
+    background-image: url("stockimgs/si2.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.roundedRect{
+    width: 160px;
+    height: 160px;
+    border-radius: 40px;
+    background-image: url("stockimgs/si1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+@keyframes siteReveal {
+    from{
+        clip-path: circle(1% at bottom);
+    }
+    to{
+        clip-path: circle(140% at bottom);
+    }
+}
+
+@keyframes siteUnblur {
+    from{
+        filter: blur(40px);
+    }
+    to{
+        filter: blur(0);
+    }
+}
+
+@keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
 
 @keyframes shapeRotate {
     0%{
