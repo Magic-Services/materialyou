@@ -1,0 +1,17 @@
+@font-face {
+    font-family: GS;
+    src: url(fonts/gsd400.ttf);
+    font-weight: 400;
+  }
+  
+@font-face {
+    font-family: GS;
+    src: url(fonts/gsd500.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: GS;
+    src: url(fonts/gsd700.ttf);
+    font-weight: 700;
+}
