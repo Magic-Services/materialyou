@@ -12,28 +12,34 @@
 <body>
     <div class="headerContainer">
         <div class="clrContainer">
-        <div class="clrBtn cbRed">Red</div>
-        <div class="clrBtn cbOrange">Orange</div>
-        <div class="clrBtn cbYellow">Yellow</div>
-        <div class="clrBtn cbGreen">Green</div>
-        <div class="clrBtn cbBlue">Blue</div>
-        <div class="clrBtn cbPurple">Purple</div>
-        <div class="clrBtn cbPink">Pink</div>
+        <div class="clrBtn cbRed" onclick="clrRed()">Red</div>
+        <div class="clrBtn cbOrange" onclick="clrOrange()">Orange</div>
+        <div class="clrBtn cbGreen" onclick="clrGreen()">Green</div>
+        <div class="clrBtn cbBlue" onclick="clrBlue()">Blue</div>
+        <div class="clrBtn cbPurple" onclick="clrPurple()">Purple</div>
+        <div class="clrBtn cbPink" onclick="clrPink()">Pink</div>
     </div>
     </div>
     <div class="contentContainer">
     <div class="title">Material You: Web</div>
 
     <div class="container shapeContainer" data-title="Shapes: Animation">
-    <div class="squarePill btnRipple" id="btnRipple"></div>
-    <img src="mu_star.svg" class="muStar btnRipple" id="btnRipple"/>
-    <img src="mu_star2.svg" class="muStar2 btnRipple" id="btnRipple"/>
+    <div class="squarePill btnRipple"></div>
+    <img src="mu_star.svg" class="muStar btnRipple"/>
+    <img src="mu_star2.svg" class="muStar2 btnRipple"/>
     </div>
 
     <div class="container imageContainer" data-title="Shapes: Image Containers">
         <div class="squarePillImg"></div>
         <div class="roundedRectImg"></div>
         <div class="circleImg"></div>
+    </div>
+
+    <div class="container clickAnimContainer" data-title="Shapes: Interaction effects (Click on a shape below)">
+        <button class="squarePillInter" id="btnRipple"></button>
+        <img src="mu_star.svg" class="muStarInter" id="btnRipple"/>
+        <img src="mu_star2.svg" class="muStar2Inter" id="btnRipple"/>
+        <button class="roundedRectInter" id="btnRipple2"></button>
     </div>
 </div>
     <script>
@@ -51,14 +57,81 @@
 
   const ripple = button.getElementsByClassName("ripple")[0];
 
+  if (ripple) {
+    ripple.remove();
+  }
+
   button.appendChild(circle);
 }
 
-const buttons = document.getElementsByTagName("div");
+const buttons = document.getElementsByTagName("button");
 for (const button of buttons) {
   button.addEventListener("click", createRipple);
 }
-    </script>
+</script>
+
+<script>
+    let root = document.documentElement;
+    function clrRed() {
+        root.style.setProperty('--backClr', '#faebed');
+        root.style.setProperty('--itemClr1', '#f3aec1');
+        root.style.setProperty('--itemFltr1', 'brightness(0) saturate(100%) invert(74%) sepia(6%) saturate(2034%) hue-rotate(296deg) brightness(104%) contrast(91%)');
+        root.style.setProperty('--itemClr2', '#fdf7f7');
+        root.style.setProperty('--itemClr3', '#fbadaf');
+        root.style.setProperty('--itemFltr3', 'brightness(0) saturate(100%) invert(70%) sepia(9%) saturate(1370%) hue-rotate(308deg) brightness(107%) contrast(97%)');
+        root.style.setProperty('--textClr', '#884558');
+    }
+
+    function clrOrange() {
+        root.style.setProperty('--backClr', '#f9f6ea');
+        root.style.setProperty('--itemClr1', '#f3dcae');
+        root.style.setProperty('--itemFltr1', 'brightness(0) saturate(100%) invert(86%) sepia(22%) saturate(459%) hue-rotate(350deg) brightness(102%) contrast(91%)');
+        root.style.setProperty('--itemClr2', '#fdfcf7');
+        root.style.setProperty('--itemClr3', '#fbf5ad');
+        root.style.setProperty('--itemFltr3', 'brightness(0) saturate(100%) invert(96%) sepia(9%) saturate(1545%) hue-rotate(338deg) brightness(106%) contrast(97%)');
+        root.style.setProperty('--textClr', '#887145');
+    }
+
+    function clrGreen() {
+        root.style.setProperty('--backClr', '#f3f9ea');
+        root.style.setProperty('--itemClr1', '#e1f3ae');
+        root.style.setProperty('--itemFltr1', 'brightness(0) saturate(100%) invert(87%) sepia(28%) saturate(337%) hue-rotate(30deg) brightness(100%) contrast(100%)');
+        root.style.setProperty('--itemClr2', '#fafdf7');
+        root.style.setProperty('--itemClr3', '#d3fbad');
+        root.style.setProperty('--itemFltr3', 'brightness(0) saturate(100%) invert(89%) sepia(8%) saturate(1340%) hue-rotate(46deg) brightness(106%) contrast(97%)');
+        root.style.setProperty('--textClr', '#788845');
+    }
+
+    function clrBlue() {
+        root.style.setProperty('--backClr', '#ebf3fa');
+        root.style.setProperty('--itemClr1', '#b8cfe8');
+        root.style.setProperty('--itemFltr1', 'brightness(0) saturate(100%) invert(83%) sepia(26%) saturate(259%) hue-rotate(173deg) brightness(96%) contrast(89%)');
+        root.style.setProperty('--itemClr2', '#f7f9fd');
+        root.style.setProperty('--itemClr3', '#bed3ea');
+        root.style.setProperty('--itemFltr3', 'brightness(0) saturate(100%) invert(87%) sepia(8%) saturate(765%) hue-rotate(176deg) brightness(96%) contrast(91%)');
+        root.style.setProperty('--textClr', '#457188');
+    }
+
+    function clrPurple() {
+        root.style.setProperty('--backClr', '#f0ebfa');
+        root.style.setProperty('--itemClr1', '#bbaef3');
+        root.style.setProperty('--itemFltr1', 'brightness(0) saturate(100%) invert(74%) sepia(12%) saturate(1450%) hue-rotate(208deg) brightness(94%) contrast(102%)');
+        root.style.setProperty('--itemClr2', '#faf7fd');
+        root.style.setProperty('--itemClr3', '#d0adfb');
+        root.style.setProperty('--itemFltr3', 'brightness(0) saturate(100%) invert(72%) sepia(27%) saturate(1108%) hue-rotate(208deg) brightness(102%) contrast(97%)');
+        root.style.setProperty('--textClr', '#514588');
+    }
+
+    function clrPink() {
+        root.style.setProperty('--backClr', '#FCEDEA');
+        root.style.setProperty('--itemClr1', '#F4B6B0');
+        root.style.setProperty('--itemFltr1', 'brightness(0) saturate(100%) invert(76%) sepia(4%) saturate(2937%) hue-rotate(316deg) brightness(104%) contrast(91%)');
+        root.style.setProperty('--itemClr2', '#FEF9F7');
+        root.style.setProperty('--itemClr3', '#FBDEAC');
+        root.style.setProperty('--itemFltr3', 'invert(95%) sepia(12%) saturate(1624%) hue-rotate(315deg) brightness(105%) contrast(97%)');
+        root.style.setProperty('--textClr', '#924642');
+    }
+</script>
 
 </body>
 

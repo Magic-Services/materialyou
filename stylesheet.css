@@ -1,8 +1,10 @@
 :root{
     --backClr: #FCEDEA;
     --itemClr1: #F4B6B0;
+    --itemFltr1: brightness(0) saturate(100%) invert(76%) sepia(4%) saturate(2937%) hue-rotate(316deg) brightness(104%) contrast(91%);
     --itemClr2: #FEF9F7;
     --itemClr3: #FBDEAC;
+    --itemFltr3: brightness(0) saturate(100%) invert(95%) sepia(12%) saturate(1624%) hue-rotate(315deg) brightness(105%) contrast(97%);
     --textClr: #924642;
 }
 
@@ -106,14 +108,13 @@ body{
 }
 
 span.ripple {
-    position: absolute; /* The absolute position we mentioned earlier */
-    z-index: 100;
+    position: absolute;
     border-radius: 50%;
     transform: scale(0);
     animation: ripple 2s linear;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     filter: blur(40px);
-  }
+}
 
 .title{
     color: var(--textClr);
@@ -162,20 +163,49 @@ span.ripple {
     width: 200px;
     height: 200px;
     animation: shapeRotate 20s linear forwards infinite;
-    filter: brightness(0) saturate(100%) invert(76%) sepia(4%) saturate(2937%) hue-rotate(316deg) brightness(104%) contrast(91%);
+    filter: var(--itemFltr1);
 }
 
 .muStar2{
     width: 200px;
     height: 200px;
     animation: shapeRotateRev 15s linear forwards infinite;
-    filter: invert(95%) sepia(12%) saturate(1624%) hue-rotate(315deg) brightness(105%) contrast(97%);
+    filter: var(--itemFltr3);
+}
+
+.squarePillInter{
+    width: 200px;
+    height: 150px;
+    background-color: var(--itemClr2);
+    border-radius: 200px;
+    transform: rotate(135deg);
+}
+
+.muStarInter{
+    width: 200px;
+    height: 200px;
+    filter: var(--itemFltr1);
+}
+
+.muStar2Inter{
+    width: 200px;
+    height: 200px;
+    filter: var(--itemFltr3);
+}
+
+.roundedRectInter{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 40px;
+    background-color: var(--textClr);
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .squarePillImg{
     width: 150px;
     height: 200px;
-    background-color: var(--itemClr2);
     border-radius: 200px;
     background-image: url("stockimgs/si2.jpg");
     background-position: center;
