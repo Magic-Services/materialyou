@@ -15,3 +15,21 @@
     src: url(fonts/gsd700.ttf);
     font-weight: 700;
 }
+
+@font-face {
+    font-family: GST;
+    src: url(fonts/gsdt400.ttf);
+    font-weight: 400;
+  }
+  
+@font-face {
+    font-family: GST;
+    src: url(fonts/gsdt500.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: GST;
+    src: url(fonts/gsdt700.ttf);
+    font-weight: 700;
+}

@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <div class="headerContainer">
-        <div class="clrContainer">
+    <div class="headerContainer" onclick="showColors()">
+        <div class="clrContainer" id="clrContainer" style="display: none;">
         <div class="clrBtn cbRed" onclick="clrRed()">Red</div>
         <div class="clrBtn cbOrange" onclick="clrOrange()">Orange</div>
         <div class="clrBtn cbGreen" onclick="clrGreen()">Green</div>
@@ -21,7 +21,7 @@
     </div>
     </div>
     <div class="contentContainer">
-    <div class="title">Material You: Web</div>
+    <div class="title" id="title">Material You: Web</div>
 
     <div class="container shapeContainer" data-title="Shapes: Animation">
     <div class="squarePill btnRipple"></div>
@@ -68,6 +68,33 @@ const buttons = document.getElementsByTagName("button");
 for (const button of buttons) {
   button.addEventListener("click", createRipple);
 }
+</script>
+
+<script>
+    // When the user scrolls down 50px from the top of the document, resize the header's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("title").style.fontSize = "80px";
+    document.getElementById("title").style.background = "rgba(255, 255, 255, 0.5)";
+    document.getElementById("title").style.boxShadow = "0px 10px 25px -10px rgba(0, 0, 0, 0.2)";
+  } else {
+    document.getElementById("title").style.fontSize = "110px";
+    document.getElementById("title").style.background = "none";
+    document.getElementById("title").style.boxShadow = "none";
+  }
+}
+</script>
+
+<script>
+    function showColors() {
+        if (document.getElementById("clrContainer").style.display === "none") {
+            document.getElementById("clrContainer").style.display = "flex"
+        } else {
+            document.getElementById("clrContainer").style.display = "none"
+        }
+    }
 </script>
 
 <script>
